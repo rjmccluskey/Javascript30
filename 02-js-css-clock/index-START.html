@@ -93,11 +93,13 @@
       let minHand = document.querySelector('.min');
       let hourHand = document.querySelector('.hour');
       let timeInfo = new TimeInfo();
+      let degreesPerSecond = 360 / 60;
+      let minuteDegreesPerSecond = degreesPerSecond / 60;
+      let hourDegreesPerSecond = minuteDegreesPerSecond / 12;
       function tick() {
-        let interval = 360 / 60;
-        timeInfo.secondDegrees += interval;
-        timeInfo.minDegrees += interval/60;
-        timeInfo.hourDegrees += interval/(60*60);
+        timeInfo.secondDegrees += degreesPerSecond;
+        timeInfo.minDegrees += minuteDegreesPerSecond;
+        timeInfo.hourDegrees += hourDegreesPerSecond;
         rotateElement(secondHand, timeInfo.secondDegrees);
         rotateElement(minHand, timeInfo.minDegrees);
         rotateElement(hourHand, timeInfo.hourDegrees);
